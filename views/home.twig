@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	{% include "partial/hero-cta.twig" %}
+
+	{% if post.content %}
+		<section class="max-w-screen-lg mx-auto mt-8 px-4">
+			<header class="mb-4">
+				<h2 class="text-center text-4xl text-purple-900 font-bold sm:text-left sm:px-4">Recent Article</h2>
+			</header>
+			<div class="flex flex-wrap justify-center">
+				{% for post in posts %}
+					{% include "tease.twig" %}
+				{% endfor %}
+			</div>
+		</section>
+	{% endif %}
+
+{% endblock %}

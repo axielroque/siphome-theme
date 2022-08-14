@@ -1,11 +1,20 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h2>{{ foo }}</h2>
-	<p>{{ qux }}</p>
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
-	
-	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	<section class="flex flex-wrap justify-center max-w-screen-xl mx-auto mt-8">
+		{% for post in posts %}
+			{% include'tease.twig' %}
+		{% endfor %}
+	</section>
+	{# <h2>{{ foo }}</h2>
+										<p>{{ qux }}</p>
+										{% for post in posts %}
+											{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+										{% endfor %} #}
+
+	<div class="flex justify-center my-4">
+		{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	</div>
+
+
 {% endblock %}

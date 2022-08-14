@@ -1,2 +1,4 @@
-Copyright
-{{"now"|date('Y')}}
+{% include "menufooter.twig" with {'items': menuFooter.get_items} %}
+<p class="text-center font-semibold mb-0">Copyright
+	{{"now"|date('Y')}}
+	{{site.name}}</p>

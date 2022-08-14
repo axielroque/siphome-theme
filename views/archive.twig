@@ -4,6 +4,16 @@
 {% extends "index.twig" %}
 
 {% block content %}
-  <h3>This is my archive</h3>
-  {{ parent() }}
+	<section class="max-w-screen-lg mx-auto mt-8 px-4">
+		<header class="mb-4">
+			<h2 class="text-center text-4xl font-bold">{{title}}</h2>
+			<p class="text-center text-lg font-semibold mt-3">This is my archive</p>
+		</header>
+		<div class="flex flex-wrap justify-center">
+			{% for post in posts %}
+				{% include "tease.twig" %}
+			{% endfor %}
+		</div>
+	</section>
+	{# {{ parent() }} #}
 {% endblock %}

@@ -1,0 +1,13 @@
+<div class="py-20 relative">
+	<img src="{{ post.meta('hero_image') | resize(1600, auto) }}" alt="{{ post.meta('hero_text') }}" class="absolute top-0 left-0 h-full w-full object-cover">
+	<div class="absolute top-0 left-0 h-full w-full bg-gray-900 opacity-50"></div>
+
+	<div class="text-center relative z-20 px-16 h-96 w-full flex flex-col justify-center text-slate-200">
+		<h2 class="font-semibold text-4xl lg:text-6xl leading-tight mb-4">
+			{{ post.meta('hero_text') }}
+		</h2>
+		<div class="text-center mt-4">
+			<a href="{{post.meta('button_url')}}" class="p-4 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">{{post.meta('button_text')}}</a>
+		</div>
+	</div>
+</div>
