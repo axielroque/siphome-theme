@@ -1,3 +1,12 @@
+## How to runn
+Change the variable SITE_DOMAIN in .env for you local domain example `SITE_DOMAIN=localhost/yoursite`
+
+The .env was Configured with `direnv`
+
+For build run ``` npm run build```
+
+For Dev and Hotreload run ``` npm run watch ```
+
 
 # The Timber Starter Theme
 

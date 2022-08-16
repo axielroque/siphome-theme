@@ -7,12 +7,12 @@
     "test": "tests"
   },
   "scripts": {
-    "sync": "browser-sync start --proxy 'siphome.wp' --files \"**/*\"",
+    "sync": "browser-sync start --proxy $SITE_DOMAIN --files \"**/*\"",
     "start": "npx tailwindcss -i tailwind.css -o style.css --watch",
-    "dev": "postcss tailwind.css --output output.css",
+    "build": "postcss tailwind.css --output output.css",
     "watch:dev": "nodemon -x npm run dev -w tailwind.config.js -w tailwind.css",
     "watch": "run-p watch:dev sync"
-  },
+  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/axielroque/siphome-theme.git"
