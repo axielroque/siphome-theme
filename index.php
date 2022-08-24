@@ -20,4 +20,13 @@ $templates        = array( 'index.twig' );
 if ( is_home() ) {
 	array_unshift( $templates, 'front-page.twig', 'home.twig' );
 }
+
+$custom_logo_id = get_theme_mod( 'custom_logo' );
+$custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
+$custom_logo_url_esc_url = 
+
+$context['custom_logo_id'] = $custom_logo_id;
+$context['custom_logo_url'] = $custom_logo_url;
+
+
 Timber::render( $templates, $context );
