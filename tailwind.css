@@ -18,3 +18,9 @@
     box-shadow: theme(boxShadow.xl);
   }
 }
+
+@layer base {
+  html {
+    font-family: "Padauk", sans-serif;
+  }
+}
