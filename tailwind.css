@@ -10,6 +10,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: "Inter", sans-serif;
+  }
+  h1 {
+    @apply font-bold text-white tracking-[-0.02em] text-[3.438rem] leading-[4.5rem];
+  }
+
+  h1 span {
+    color: #1ece7a;
+  }
+}
+
 @layer components {
   .card {
     background-color: theme(colors.white);
@@ -17,10 +30,10 @@
     padding: theme(spacing.6);
     box-shadow: theme(boxShadow.xl);
   }
-}
-
-@layer base {
-  html {
-    font-family: "Padauk", sans-serif;
+  .hero {
+    background-size: contain;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    height: 90vh;
   }
 }
