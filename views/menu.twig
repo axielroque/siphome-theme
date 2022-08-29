@@ -1,8 +1,13 @@
-{% if menu %}
-	<ul class="md:flex">
+{% if menuPrimary %}
+	<ul class="flex flex-col items-center md:flex-row">
 		{% for item in items %}
+			{% set active = 'opacity-60 hover:opacity-100' %}
+			{% if item.current %}
+				{% set active = 'text-blue opacity-100 text-stroke' %}
+			{% endif %}
+
 			<li class="{{ item.classes | join(' ') }}">
-				<a target="{{ item.target }}" class="text-blue-900 font-semibold block py-2 md:px-4" href="{{ item.link }}">{{ item.title }}</a>
+				<a target="{{ item.target }}" class="ease-in-out duration-300 text-2xl sm:text-base  md:text-white hover:text-stroke focus:opacity-100 focus:text-stroke {{ active }} block py-2 md:px-4 mb-10 md:mb-0" href="{{ item.link }}">{{ item.title }}</a>
 				{% if item.children %}
 					{# {% include "menu.twig" with {'items': item.children} %} #}
 				{% endif %}
