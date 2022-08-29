@@ -13,9 +13,11 @@
 @layer base {
   html {
     font-family: "Inter", sans-serif;
+    @apply text-gray;
+    font-size: 15px;
   }
   h1 {
-    @apply font-bold text-white tracking-[-0.02em] text-[3.438rem] leading-[4.5rem];
+    @apply font-bold text-white tracking-[-0.02em] text-[2.625rem] leading-[3.688rem] lg:text-[3.438rem] lg:leading-[4.5rem];
   }
 
   h1 span {
@@ -31,9 +33,26 @@
     box-shadow: theme(boxShadow.xl);
   }
   .hero {
-    background-size: contain;
-    background-position: 0px 0px;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    height: 90vh;
+  }
+  @media screen(lg) {
+    .hero {
+      background-size: calc(100% - 350px) 100%;
+      background-position: left;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .btn-green {
+    @apply ease-in-out duration-300 focus:outline-none text-white bg-green hover:bg-white hover:text-green hover:ring-green focus:ring-1 focus:ring-green font-bold rounded text-[15px] px-5 py-2.5 mr-2 mb-2;
+  }
+  .btn-transparent {
+    @apply ease-in-out duration-300 focus:outline-none text-white bg-transparent border border-white hover:bg-slate-50 hover:text-green focus:ring-1 focus:ring-white font-bold rounded text-[15px] px-5 py-2.5 mr-2 mb-2;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px;
   }
 }
