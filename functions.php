@@ -61,12 +61,26 @@ class StarterSite extends Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
+		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		parent::__construct();
 	}
+
+
+	//Register menus
+	public function register_menus() {
+		register_nav_menus(
+			array(
+				'primary-menu' => __( 'Primary Menu', 'starter-theme' ),
+				'footer-menu' => __( 'Footer Menu', 'starter-theme' ),
+				'footer-menu-about' => __( 'Footer Menu About', 'starter-theme' ),
+			)
+		);
+	}
+
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
 
@@ -85,7 +99,13 @@ class StarterSite extends Timber\Site {
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu']  = new Timber\Menu();
+		$context['menuPrimary']  = new Timber\Menu('primary-menu');
+		$context['menuFooter']  = new Timber\Menu('footer-menu');
+		$context['menuFooterAbout']  = new Timber\Menu('footer-menu-about');
 		$context['site']  = $this;
+		$custom_logo_url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
+     	$context['custom_logo_url'] = $custom_logo_url;
+
 		return $context;
 	}
 
@@ -141,6 +161,9 @@ class StarterSite extends Timber\Site {
 		);
 
 		add_theme_support( 'menus' );
+
+		add_theme_support( 'custom-logo' );
+		
 	}
 
 	/** This Would return 'foo bar!'.

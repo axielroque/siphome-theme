@@ -1,0 +1,33 @@
+<header class="header-page ease-in-out duration-200 fixed w-full md:pt-8 z-10">
+	<div class="container md:flex">
+
+		<div class="flex justify-between items-center px-4 py-2">
+			{% if custom_logo_url %}
+				<a href="{{site.url}}" class="hdr-logo-lin">
+					<img src="{{ custom_logo_url|resize( 'auto', 50) }}" alt="{{ site.name }}">
+				</a>
+			{% else %}
+				<h1 class="hdr-logo" role="banner">
+					<a class="hdr-logo-link font-bold" href="{{site.url}}" rel="home">{{site.name}}</a>
+				</h1>
+			{% endif %}
+			<svg id="menuToggle" role="button" class="text-white fill-current text-gray-800 md:hidden" viewbox="0 0 100 80" width="40" height="40">
+				<rect width="100" height="20"></rect>
+				<rect y="30" width="100" height="20"></rect>
+				<rect y="60" width="100" height="20"></rect>
+			</svg>
+		</div>
+		<nav id="mainMenu" class="ease-in-out duration-200 hidden px-4 py-2 w-full md:flex flex-wrap ite justify-between" role="navigation">
+			{% include "menu.twig" with {'items': menuPrimary.get_items} %}
+			<!-- buttons - start -->
+			<div class="flex flex-row justify-center lg:justify-start items-center gap-2.5 mt-6 md:mt-0">
+				<a href="!#" class="inline-block md:text-white lg:text-solidBlack text-sm font-semibold text-center rounded-lg outline-none transition duration-100 px-3">Sign in</a>
+				<span class="hidden lg:block">|</span>
+				<a href="!#" class="inline-block text-green text-sm font-semibold text-center rounded-lg outline-none transition duration-100 px-3">Get Started</a>
+			</div>
+		</nav>
+		<!-- #nav -->
+
+
+	</div>
+</header>

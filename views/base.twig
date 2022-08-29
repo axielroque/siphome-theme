@@ -1,37 +1,17 @@
 {% block html_head_container %}
-
 	{% include 'html-header.twig' %}
 	{% block head %}{% endblock %}
 </head>{% endblock %}<body class="{{body_class}}" data-template="base.twig">
 <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
-<header class="bg-gray-300 md:flex md:justify-between">
-	<div class="flex justify-between items-center px-4 py-2">
-		{% if custom_logo_url %}
-			<a href="#!" class="hdr-logo-lin">
-				<img src="{{ custom_logo_url }}" alt="{{ site.name }}">
-			</a>
-		{% else %}
-			<h1 class="hdr-logo" role="banner">
-				<a class="hdr-logo-link font-bold" href="{{site.url}}" rel="home">{{site.name}}</a>
-			</h1>
-		{% endif %}
-		<svg id="menuToggle" role="button" class="fill-current text-gray-800 md:hidden" viewbox="0 0 100 80" width="40" height="40">
-			<rect width="100" height="20"></rect>
-			<rect y="30" width="100" height="20"></rect>
-			<rect y="60" width="100" height="20"></rect>
-		</svg>
-	</div>
-	<nav id="mainMenu" class="hidden bg-blue-300 px-4 py-2 md:block" role="navigation">
-		{% include "menu.twig" with {'items': menu.get_items} %}
-	</nav>
-	<!-- #nav -->
-</header>
 
-<section
-	id="content" role="main" class="content-wrapper">
-	{# {% if title %}
-				<h1>{{title}}</h1>
-			{% endif %} #}
+{% include 'header.twig' %}
+
+{% include './partial/main-hero.twig' %}
+
+{# <section id="content" role="main" class="content-wrapper">
+	{% if title %}
+		<h1>{{title}}</h1>
+	{% endif %}
 	<div class="wrapper {{sidebar_class}}">
 		{% block content %}
 			Sorry, no content
@@ -42,7 +22,7 @@
 			{{sidebar}}
 		</aside>
 	{% endif %}
-</section>
+</section> #}
 
 {% block footer %}
 	<footer id="footer" class="bg-gray-300 px-4 py-8">
@@ -54,8 +34,12 @@
 	document.addEventListener("DOMContentLoaded", function () {
 let navToggle = document.getElementById('menuToggle');
 let nav = document.getElementById('mainMenu');
+let headerPage = document.querySelector('.header-page');
 navToggle.onclick = function () {
-nav.classList.toggle('hidden')
+this.classList.toggle('text-white');
+this.classList.toggle('text-green');
+nav.classList.toggle('hidden');
+headerPage.classList.toggle('bg-white');
 }
 });
 </script></body></html>

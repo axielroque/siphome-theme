@@ -1,5 +1,6 @@
-jQuery( document ).ready( function( $ ) {
+jQuery(document).ready(function ($) {
 
   // Your JavaScript goes here
+  console.log('forked');
 
 });

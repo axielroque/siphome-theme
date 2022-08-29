@@ -1,8 +1,14 @@
 {% if menuFooter %}
-	<ul class="flex justify-center flex-wrap">
+	<ul class="flex flex-col gap-4">
 		{% for item in items %}
+
+			{% set active = 'text-gray' %}
+			{% if item.current %}
+				{% set active = 'text-blue text-stroke' %}
+			{% endif %}
+
 			<li class="{{ item.classes | join(' ') }}">
-				<a target="{{ item.target }}" class="block py-1 px-4 text-blue-300" href="{{ item.link }}">{{ item.title }}</a>
+				<a target="{{ item.target }}" class="{{ active }} font-normal hover:text-blue hover:text-stroke active:text-blue focus:text-blue focus:text-stroke ease-in-out duration-300" href="{{ item.link }}">{{ item.title }}</a>
 				{% if item.children %}
 					{# {% include "menu.twig" with {'items': item.children} %} #}
 				{% endif %}
