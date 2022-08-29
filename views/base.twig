@@ -6,11 +6,12 @@
 
 {% include 'header.twig' %}
 
-<section
-	id="content" role="main" class="content-wrapper">
-	{# {% if title %}
-						<h1>{{title}}</h1>
-					{% endif %} #}
+{% include './partial/main-hero.twig' %}
+
+{# <section id="content" role="main" class="content-wrapper">
+	{% if title %}
+		<h1>{{title}}</h1>
+	{% endif %}
 	<div class="wrapper {{sidebar_class}}">
 		{% block content %}
 			Sorry, no content
@@ -21,7 +22,7 @@
 			{{sidebar}}
 		</aside>
 	{% endif %}
-</section>
+</section> #}
 
 {% block footer %}
 	<footer id="footer" class="bg-gray-300 px-4 py-8">
@@ -33,8 +34,12 @@
 	document.addEventListener("DOMContentLoaded", function () {
 let navToggle = document.getElementById('menuToggle');
 let nav = document.getElementById('mainMenu');
+let headerPage = document.querySelector('.header-page');
 navToggle.onclick = function () {
-nav.classList.toggle('hidden')
+this.classList.toggle('text-white');
+this.classList.toggle('text-green');
+nav.classList.toggle('hidden');
+headerPage.classList.toggle('bg-white');
 }
 });
 </script></body></html>
